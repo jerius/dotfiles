@@ -71,27 +71,15 @@ set cursorline
 " => Colors and Fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-syntax enable "Enables syntax highlighting
+syntax on " enable Enables syntax highlighting
 
 " Set font according to system
 " Mac
 set gfn=Menlo:h14
 set shell=/bin/bash
-" Linux
-"set gfn="Monospace\ 10
-"set shell=/bin/bash
-
-if has("gui_running")
-    set guioptions-=T
-    set t_Co=256
-    set background=dark
-    colorscheme peaksea
-    set nonu
-else
-    colorscheme zellner
-    set background=dark
-    set nonu
-endif
+set guioptions-=T
+set t_Co=256
+set nonu
 
 set encoding=utf8
 try
@@ -170,3 +158,4 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
+set number
