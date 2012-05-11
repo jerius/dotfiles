@@ -4,18 +4,35 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Explicitly get out of vi-compatible mode
+set nocompatible
+
+" Set color scheme
+color desert
+
+" Set dark background
+set background=dark
+
+" Always show the status line
+set laststatus=2
+
+" Don't insert any extra pixel lines between rows
+set linespace=0
+
+" Leave my cursor where it was
+set nostartofline
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" Sets how many of lines VIM has ot remember
-set history=500
+" Sets how many of lines VIM has to remember
+set history=1000
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Show line numbers on the left
 set number
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User interface
@@ -34,7 +51,7 @@ set hid
 " (sw)shiftwidth: how many columns text is indented with reindent operations
 " (sts)softtabstop: how many columns vim uses when you hit tab
 " (ts)tabstop: how many columns a tab counts for
-set ts=4 sw=4 sts=2
+set ts=2 sw=2 sts=2
 
 " Set backpsace config
 set backspace=eol,start,indent
@@ -66,6 +83,9 @@ set tm=500
 
 " Highlight the current line
 set cursorline
+"hi CursorLine term=bold cterm=bold guibg=Grey40
+hi cursorline guibg=#333333
+hi CursorColumn guibg=#333333
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -113,8 +133,8 @@ endtry
 
 set expandtab
 set smarttab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 set lbr
 set tw=500
