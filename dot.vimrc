@@ -81,12 +81,6 @@ set novisualbell
 set t_vb=
 set tm=500
 
-" Highlight the current line
-set cursorline
-"hi CursorLine term=bold cterm=bold guibg=Grey40
-hi cursorline guibg=#333333
-hi CursorColumn guibg=#333333
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,6 +103,10 @@ endtry
 
 "Default file types
 set ffs=unix,mac
+
+" Highlight the current line
+set cursorline
+hi CursorLine cterm=NONE cterm=bold ctermbg=darkgrey guibg=darkgrey
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups, and undo
