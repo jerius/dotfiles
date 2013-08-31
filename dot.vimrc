@@ -8,10 +8,12 @@
 set nocompatible
 
 " Set color scheme
-color desert
+color desert2
 
 " Set dark background
 set background=dark
+
+set t_Co=256
 
 " Always show the status line
 set laststatus=2
@@ -34,6 +36,20 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 " Show line numbers on the left
 set number
 
+" Configure clipboard to allow copy/paste via tmux
+set clipboard=unnamed
+
+set pastetoggle=<F2>
+
+" Pathogen
+call pathogen#infect()
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
+
+" Fugitive status line
+"set statusline=%<\ %f\ %{fugitive#statusline()}
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -47,11 +63,6 @@ set ruler
 
 " Change buffer without saving
 set hid
-
-" (sw)shiftwidth: how many columns text is indented with reindent operations
-" (sts)softtabstop: how many columns vim uses when you hit tab
-" (ts)tabstop: how many columns a tab counts for
-set ts=2 sw=2 sts=2
 
 " Set backpsace config
 set backspace=eol,start,indent
@@ -129,10 +140,17 @@ endtry
 " Text, tabs and indents
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
+set autoindent
+set smartindent
 set expandtab
 set smarttab
 set shiftwidth=2
 set tabstop=2
+
+" (sw)shiftwidth: how many columns text is indented with reindent operations
+" (sts)softtabstop: how many columns vim uses when you hit tab
+" (ts)tabstop: how many columns a tab counts for
+set ts=2 sw=2 sts=2
 
 set lbr
 set tw=500
@@ -177,3 +195,7 @@ map <leader>sa zg
 map <leader>s? z=
 
 set number
+
+" Perl stuff
+vmap ,pt :!perltidy<CR> 
+nmap ,pt :%! perltidy<CR>
