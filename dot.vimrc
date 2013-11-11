@@ -8,7 +8,7 @@
 set nocompatible
 
 " Set color scheme
-color desert2
+color desert
 
 " Set dark background
 set background=dark
