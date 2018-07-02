@@ -8,7 +8,7 @@
 set nocompatible
 
 " Set color scheme
-color desert
+"color distinguished
 
 " Set dark background
 set background=dark
@@ -42,13 +42,13 @@ set clipboard=unnamed
 set pastetoggle=<F2>
 
 " Pathogen
-call pathogen#infect()
+execute pathogen#infect()
+
+filetype plugin indent on
+let g:syntastic_json_checkers=['jsonlint']
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
-
-" Fugitive status line
-"set statusline=%<\ %f\ %{fugitive#statusline()}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User interface
@@ -86,6 +86,11 @@ set showmatch
 " How many tenths of a second to blink
 set mat=2
 
+" Highlight text that goes over the 80 char column limit
+"highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+highlight OverLength ctermbg=darkgray guibg=#592929
+match OverLength /\%81v.\+/
+
 " No sound on errors
 set noerrorbells
 set novisualbell
@@ -117,7 +122,11 @@ set ffs=unix,mac
 
 " Highlight the current line
 set cursorline
-hi CursorLine cterm=NONE cterm=bold ctermbg=darkgrey guibg=darkgrey
+hi CursorLine cterm=NONE cterm=bold ctermbg=DarkGray guibg=DarkGray
+"ctermbg=DarkSlateGray guibg=DarkSlateGray
+
+" Set json file types properly
+"au BufRead,BufNewFile *.json set filetype=json
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups, and undo
@@ -130,7 +139,7 @@ set noswapfile
 
 " Persistent undo
 try
-    set undodir=~/undodir
+    set undodir=~/.undodir/
     set undofile
 catch
 endtry
@@ -180,6 +189,9 @@ inoremap $q ''<esc>i
 inoremap $e ""<esc>i
 inoremap $t <><esc>i
 
+" remap for undotree
+nnoremap <F5> :UndotreeToggle<cr>
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
@@ -199,3 +211,23 @@ set number
 " Perl stuff
 vmap ,pt :!perltidy<CR> 
 nmap ,pt :%! perltidy<CR>
+
+" Plugins
+"
+"
+" FZF
+set rtp+=/usr/local/opt/fzf
+
+" TERRAFORM
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_remap_spacebar=1
+let g:terraform_fmt_on_save=1
+
+" Powerline
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+
+" Autocomplete
+"let g:neocomplete#enable_at_startup = 1
