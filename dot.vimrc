@@ -7,9 +7,6 @@
 " Explicitly get out of vi-compatible mode
 set nocompatible
 
-" Set color scheme
-"color distinguished
-
 " Set dark background
 set background=dark
 
@@ -45,10 +42,17 @@ set pastetoggle=<F2>
 execute pathogen#infect()
 
 filetype plugin indent on
-let g:syntastic_json_checkers=['jsonlint']
+"let g:syntastic_json_checkers=['jsonlint']
 
 " Powerline
 let g:Powerline_symbols = 'fancy'
+
+" Fugitive status line
+"set statusline=%<\ %f\ %{fugitive#statusline()}
+"
+" Set color scheme
+"color distinguished
+colorscheme gruvbox
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => User interface
@@ -220,8 +224,8 @@ set rtp+=/usr/local/opt/fzf
 
 " TERRAFORM
 let g:terraform_align=1
-let g:terraform_fold_sections=1
-let g:terraform_remap_spacebar=1
+"let g:terraform_fold_sections=1
+"let g:terraform_remap_spacebar=1
 let g:terraform_fmt_on_save=1
 
 " Powerline
